@@ -11,5 +11,6 @@ class StateController < ApplicationController
         "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
         "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
         "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+        @title = "50 states substring fun"
     end
 end
