@@ -1,0 +1,11 @@
+<h1> Hmmm </h1>
+
+<% params.each do |key,value| %>
+    <p><%= key %>: <%= value %></p>
+<% end %>
+
+<% @states.each do |s| %>
+    <% if s.downcase.include? params[:substring].downcase %>
+        <p><%= s %></p>
+    <% end %>
+<% end %>
