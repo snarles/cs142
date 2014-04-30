@@ -17,6 +17,9 @@ class ArticlesController < ApplicationController
         @articles = Article.all
     end
     
+    def filter
+    end
+    
     private
         def article_params
             params.require(:article).permit(:title,:text)
