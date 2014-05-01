@@ -2,14 +2,12 @@
 
 <table>
     <tr>
-        <th>Title</th>
-        <th>Text</th>
+        <th>User name</th>
     </tr>
     
     <% @users.each do |user| %>
         <tr>
-            <td><%= user.first_name %></td>
-            <td><%= user.last_name %></td>
+            <td><%= user.first_name + " " + user.last_name %></td>
         </tr>
     <% end %>
 </table>
