@@ -11,9 +11,12 @@
         <div>
             <%= image_tag "noodlebanner.jpg"%>
         </div>
-        <% unless session[:login].nil? %>
+        <% if session[:login].nil? %>
+            <div> <%= link_to '[Log in]', login_users_path %></div>
+        <% else %>
             <div>Logged in as <%= session[:login] %>.  <%= link_to '[Logout]', logout_users_path %> </div>
         <% end %>
+        
         <%= yield %>
 
     </body>
