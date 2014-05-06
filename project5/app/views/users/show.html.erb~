@@ -16,11 +16,6 @@
                 <%= comment.comment %>
             </p>
         <% end %>
-        <% if session[:login].nil? %>
-            <div> <%= link_to 'Log in', login_users_path %> to post comments. </div>
-        <% else %>
-            <%= link_to 'Post a comment', new_photo_comment_path(photo) %>
-        <% end %>
     </div>
 <% end %>
 
