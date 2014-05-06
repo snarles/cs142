@@ -1,0 +1,23 @@
+<h2><%= @user.first_name + " "+@user.last_name %></h2>
+
+<% @user.photos.each do |photo| %>
+    <hr /><p>
+    <strong> Date taken: </strong>
+    <%= photo.date_time %><br />
+    <%= image_tag photo.file_name %>
+    </p>
+    <div>
+        <% if photo.comments.count > 0 %>
+            <strong> Comments: </strong><br />
+        <% end %>
+        <% photo.comments.each do |comment| %>
+            <p>
+                <%= link_to comment.user.first_name + " "+comment.user.last_name, user_path(comment.user) %> : 
+                <%= comment.comment %>
+            </p>
+        <% end %>
+    </div>
+<% end %>
+
+<hr />
+<div><%= link_to 'Back', users_path %></div>
