@@ -1,6 +1,6 @@
 <div>
     <hr /><p>
-    <strong> Date taken: </strong>
+    <strong> Date uploaded: </strong>
     <%= photo.date_time %><br />
     <%= image_tag photo.file_name %>
     </p>
@@ -13,7 +13,7 @@
                 <%= link_to comment.user.first_name + " "+comment.user.last_name, user_path(comment.user) %> : 
                 <%= comment.comment %>
                 <br/>
-                <i> <%= comment.date_time %>
+                <i> Posted <%= comment.date_time %>
                 </i>
             </p>
         <% end %>

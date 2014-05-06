@@ -1,0 +1,19 @@
+<h1>Upload a new photo</h1>
+<%= form_for @photo do |f| %>
+
+    <% if @photo.errors.any? %>
+    <div id="error explanation">
+        <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from uploading:</h2>
+        <ul>
+        <% @photo.errors.full_messages.each do |msg| %>
+            <li> <%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <%= f.file_field :input_file %>
+    <p>
+    <%= f.submit %>
+    </p>
+<% end %>

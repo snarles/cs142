@@ -1,7 +1,7 @@
 <h2><%= @user.first_name + " "+@user.last_name %></h2>
 
 <% @user.photos.each do |photo| %>
-    <%= render(:partial => "shared/photo_and_comments", :locals=>{:photo => photo}) %>
+    <%= render(:partial => "shared/photo_and_comments", :locals=>{:photo => photo,:posting=> nil}) %>
 <% end %>
 
 <hr />
