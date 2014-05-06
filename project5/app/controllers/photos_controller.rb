@@ -2,6 +2,7 @@ class PhotosController < ApplicationController
     before_filter :require_login
     
     def new
+        @title = "Upload a new photo"
         @photo = Photo.new
     end
     
