@@ -1,6 +1,4 @@
-<h2><%= @user.first_name + " "+@user.last_name %></h2>
-
-<% @user.photos.each do |photo| %>
+<div>
     <hr /><p>
     <strong> Date taken: </strong>
     <%= photo.date_time %><br />
@@ -14,15 +12,17 @@
             <p>
                 <%= link_to comment.user.first_name + " "+comment.user.last_name, user_path(comment.user) %> : 
                 <%= comment.comment %>
+                <br/>
+                <i> <%= comment.date_time %>
+                </i>
             </p>
         <% end %>
         <% if session[:login].nil? %>
             <div> <%= link_to 'Log in', login_users_path %> to post comments. </div>
         <% else %>
-            <%= link_to 'Post a comment', new_photo_comment_path(photo) %>
+            <% if posting.nil? %>
+                <%= link_to 'Post a comment', new_photo_comment_path(photo) %>
+            <% end %>
         <% end %>
     </div>
-<% end %>
-
-<hr />
-<div><%= link_to 'Back', users_path %></div>
+</div>
