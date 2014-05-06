@@ -16,10 +16,10 @@ class UsersController < ApplicationController
     def post_login
         @user = User.find_by_login(params[:login])
         if @user.nil?
-            session[:login_error] = :not_found    
+            session[:login_error] = params[:login]    
             redirect_to :back, status: 302
         else
-            session[:login] = params[:login]
+            session[:login] = @user
             session[:login_error] = nil    
             redirect_to @user, status: 302
         end

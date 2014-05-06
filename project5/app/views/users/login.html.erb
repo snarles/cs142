@@ -1,7 +1,7 @@
 <div>
     <h1>Log in here</h1>
     <% unless session[:login_error].nil? %>
-        <div id="error explanation"><p> LOGIN NOT FOUND </p></div>
+        <div id="error explanation"><p> No user with login '<%=session[:login_error]%>' was found. </p></div>
     <% end %>
     <%= form_tag(:action => 'post_login') do %>
         <p>Login: <%= text_field_tag(:login) %></p>
