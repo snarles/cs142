@@ -1,4 +1,0 @@
-class InitializeLogin < ActiveRecord::Migration
-  def change
-  end
-end
