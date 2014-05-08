@@ -1,10 +1,9 @@
 <div>
     <p> Now viewing <%= link_to @user.full_name, user_path(@user) %>'s photo:</p><br/>
-    <%= render(:partial => "shared/photo_and_comments",:locals => {:photo => @photo,:posting => 1}) %>
+    <div><%= render(:partial => "shared/photo_and_comments",:locals => {:photo => @photo,:posting => 1}) %></div>
     <strong>Add a comment:</strong>
-    <%= form_for [@photo,@comment] do |f|%>
-        <p><%= f.label :comment %><br/>
-        <%= f.text_area :comment %></p>
+    <div><%= form_for [@photo,@comment] do |f|%>
+        <p><%= f.text_area :comment %></p>
         <p><%= f.submit %></p>
     <% end %>
     </div>
