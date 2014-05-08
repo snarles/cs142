@@ -19,9 +19,14 @@ class UsersController < ApplicationController
             session[:login_error] = params[:login]    
             redirect_to :back, status: 302
         else
-            session[:login] = @user
-            session[:login_error] = nil    
-            redirect_to @user, status: 302
+            if @user.password_valid?(params[:password])
+                session[:login] = @user
+                session[:login_error] = nil    
+                redirect_to @user, status: 302
+            else
+                session[:login_error] = "!password"    
+                redirect_to :back, status: 302
+            end
         end
     end
     
