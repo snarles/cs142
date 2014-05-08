@@ -4,6 +4,21 @@ class UsersController < ApplicationController
         @users = User.all
     end
     
+    def new
+        @title = "New User Registration"
+        @user = User.new
+    end
+    
+    def create
+        @user= User.new(user_params)
+        @user.password= params[:user][:password]
+        if @user.save
+            redirect_to @user
+        else
+            render 'new'
+        end
+    end
+    
     def show
         @user = User.find(params[:id])
         @title = @user.first_name + " " + @user.last_name + " page"
@@ -33,5 +48,10 @@ class UsersController < ApplicationController
     def logout
         session[:login] = nil
         redirect_to action: :index, status: 302
+    end
+    
+    private
+    def user_params
+        params.require(:user).permit(:first_name,:last_name,:login,:password_digest,:salt)
     end
 end

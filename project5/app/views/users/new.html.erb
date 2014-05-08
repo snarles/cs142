@@ -1,0 +1,34 @@
+<div><h1>New User Registration</h1></div>
+<div>
+    <%= form_for @user do |f| %>
+        <% if @user.errors.any? %>
+        <div id="error explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prevented user registration:</h2>
+            <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li> <%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <p>
+            <%= f.label :first_name %><br>
+            <%= f.text_field :first_name %>
+        </p>
+        <p>
+            <%= f.label :last_name %><br>
+            <%= f.text_field :last_name %>
+        </p>
+        <p>
+            <%= f.label :login %><br>
+            <%= f.text_field :login %>
+        </p>
+        <p>
+            <%= f.label :password %><br>
+            <%= f.text_field :password %>
+        </p>        
+        <p>
+            <%= f.submit %>
+        </p>
+    <% end %>
+</div>
