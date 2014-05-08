@@ -11,8 +11,8 @@ class InitializePasswords < ActiveRecord::Migration
   def down
       us = User.find(:all)
       us.each do |u|
-          u.password_digest = nil
-          u.salt = nil
+          u.password_digest = ""
+          u.salt = ""
           u.save(:validate => false)
       end
   end

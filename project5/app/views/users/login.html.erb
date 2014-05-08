@@ -10,6 +10,7 @@
     <%= form_tag(:action => 'post_login') do %>
         <p>Login: <%= text_field_tag(:login) %></p>
         <p>Password: <%= text_field_tag(:password) %></p>
+        <%= submit_tag 'Save' %>
     <% end %>
 </div>
 
