@@ -1,2 +1,30 @@
 .calendar {
+    font-family: Verdana, sans-serif;
+    width: 20%;
+    padding: 2px;
+}
+table.calframe {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    padding: 2px;
+    background-color: #CCDDFF;
+}
+.calendar h2 {
+    border: 2px solid #CCCCEE;
+    border-radius: 10px;
+    background-color: #F0F5FF;
+    font-size: 18px;
+    text-align: center;
+    padding: 3px;
+    margin: 5px;
+}
+table.calframe th {
+    vertical-align:center;
+    border-radius: 5px;
+    width: 14%;
+    text-align: center;
+    background-color: #000099;
+    font-size: 10px;
+    color: #FFFFFF;
 }
