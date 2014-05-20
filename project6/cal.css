@@ -2,24 +2,62 @@
     font-family: Verdana, sans-serif;
     width: 20%;
     padding: 2px;
+    position: relative;
 }
+table.twopage {
+    width: 50%;
+}
+table.twopage td {
+    width: 20%;
+}
+
 table.calframe {
-    border: 1px solid black;
+    border: 2px solid #000099;
     border-radius: 10px;
     width: 100%;
     padding: 2px;
     background-color: #CCDDFF;
 }
-.calendar h2 {
-    border: 2px solid #CCCCEE;
+table.calmenu {
+    width: 100%;
+    padding: 2px;
+    background-color: #FFFFFF;
+}
+table.calmenu tr {
+    width: 100%;
+    align-self: stretch;
+}
+.calmenu .leftbutton {
+    text-align:left;
+    align-self: left;
+}
+.calmenu .rightbutton {
+    text-align:right;
+    align-self: right;
+}
+.calmenu .button {
+    border: 2px solid #000099;
     border-radius: 10px;
-    background-color: #F0F5FF;
+    background-color: #FCFDFF;
     font-size: 18px;
     text-align: center;
     padding: 3px;
     margin: 5px;
+    width: 5%; 
+    color: #000099;
 }
-table.calframe th {
+.calmenu .monthname {
+    border: 2px solid #000099;
+    border-radius: 10px;
+    background-color: #F0F5FF;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px;
+    margin: 5px;
+    colspan: 5;
+    align-self: stretch;
+}
+table.calframe td.day {
     vertical-align:center;
     border-radius: 5px;
     width: 14%;
@@ -27,4 +65,18 @@ table.calframe th {
     background-color: #000099;
     font-size: 10px;
     color: #FFFFFF;
+    padding-bottom: 5px;
+}
+table.calframe td {
+    border: 1px solid #000099;
+    vertical-align: top;
+    width: 14%;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    text-align: left;
+    background-color: #FCFDFF;
+    font-size: 10px;
+    color: #000000;
 }
