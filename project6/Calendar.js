@@ -1,5 +1,15 @@
 
 dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+monthNames = ["January","February","March","April","May","June","July","August","September","November","December"];
+
+
+function Calendar(str) {
+	this.element = document.getElementById(str);
+	this.day = new Date();
+	this.day.setDate(1);
+	this.month = this.day.getMonth();
+	this.year = this.day.getFullYear();
+}
 
 function tableCreate(str) {
 	var element = document.getElementById(str);
@@ -43,6 +53,40 @@ function tableCreate(str) {
 	element.appendChild(tbl0);
 	
 }
+
+Calendar.prototype.offset = function() {
+  return this.day.getDay();
+}
+
+Calendar.prototype.ndays = function() {
+  var temp = new Date();
+  temp.setYear(this.year);
+  temp.setMonth(this.month+1);
+  temp.setDate(0);
+  return temp.getDate();
+}
+
+
+Calendar.prototype.incrementMonth = function() {
+  if (this.month == 12) {
+    this.month = 1;
+    this.year = this.year + 1;
+  }
+  else {
+    this.month = this.month+1;
+  }
+  this.day.setMonth(this.month);
+  this.day.setFullYear(this.year);
+}
+
+infoel = document.getElementById("info");
+infoel.innerHTML = "TEST";
+cal1 = new Calendar("div1");
+
+
+
+infoel.innerHTML = cal1.ndays() ;
+
 
 tableCreate("cal1");
 tableCreate("cal2");
