@@ -80,3 +80,14 @@ table.calframe td {
     font-size: 10px;
     color: #000000;
 }
+
+table.calframe td.special {
+    background-color: #FF55DD;
+    color: #000000;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+table.calframe td.blank {
+    color: #FCFDFF;
+}
