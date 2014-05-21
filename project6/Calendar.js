@@ -1,8 +1,8 @@
 
 dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-monthNames = ["January","February","March","April","May","June","July","August","September","November","December"];
-holidayMonths = [0,1,6,11];
-holidayDays = [1,14,9,25];
+monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+holidayMonths = [0,1,6,11,9];
+holidayDays = [1,14,9,25,31];
 
 function Calendar(str) {
 	this.element = document.getElementById(str);
@@ -51,15 +51,29 @@ function Calendar(str) {
 	tblm.appendChild(tblmr);
 	this.tbl = tbl0;
 	this.holidays = [];
+	var obj = this;
+	tblml.onmousedown = function(event) {
+	  obj.decrementMonth();
+	}
+	tblmr.onmousedown = function(event) {
+	  obj.incrementMonth();
+	}
 	this.update();
 }
 
-Calendar.prototype.render = function() {
+Calendar.prototype.render = function(date) {
+    this.month = date.getMonth();
+    this.year = date.getFullYear();
+    this.update();
 	this.element.setAttribute('class','calendar');
 	this.element.appendChild(this.tbl);
 }
 
 Calendar.prototype.update = function() {
+	this.day = new Date();
+	this.day.setDate(1);
+	this.day.setMonth(this.month);
+	this.day.setFullYear(this.year);
     this.monthname.innerHTML = monthNames[this.month] + " " + this.year;
     this.holidays=[];
     for (var ii = 0; ii < holidayMonths.length; ii++) {
@@ -69,13 +83,15 @@ Calendar.prototype.update = function() {
     }
     var count = 0;
     var step1 = this.offset();
+    var daycount = this.ndaysPrev() - this.offset();
     while (count < step1) {
-      this.dayEntries[count].innerHTML = "0";
+      daycount++;
+      this.dayEntries[count].innerHTML = daycount;
       this.dayEntries[count].setAttribute('class','blank');
       count++;
     }
     var step2 = this.ndays();
-    var daycount = 0;
+    daycount = 0;
     while (daycount < step2) {
       daycount++;
       this.dayEntries[count].innerHTML = daycount;
@@ -85,8 +101,10 @@ Calendar.prototype.update = function() {
       }
       count++;
     }
+    daycount = 0;
     while (count < 42) {
-      this.dayEntries[count].innerHTML = "0";
+      daycount++;
+      this.dayEntries[count].innerHTML = daycount;
       this.dayEntries[count].setAttribute('class','blank');
       count++;
     }    
@@ -98,16 +116,24 @@ Calendar.prototype.offset = function() {
 
 Calendar.prototype.ndays = function() {
   var temp = new Date();
-  temp.setYear(this.year);
+  temp.setFullYear(this.year);
   temp.setMonth(this.month+1);
+  temp.setDate(0);
+  return temp.getDate();
+}
+
+Calendar.prototype.ndaysPrev = function() {
+  var temp = new Date();
+  temp.setFullYear(this.year);
+  temp.setMonth(this.month);
   temp.setDate(0);
   return temp.getDate();
 }
 
 
 Calendar.prototype.incrementMonth = function() {
-  if (this.month == 12) {
-    this.month = 1;
+  if (this.month == 11) {
+    this.month = 0;
     this.year = this.year + 1;
   }
   else {
@@ -133,15 +159,12 @@ Calendar.prototype.decrementMonth = function() {
   this.update();
 }
 
-infoel = document.getElementById("info");
-infoel.innerHTML = "TEST";
 cal1 = new Calendar("cal1");
-cal1.decrementMonth();
-cal1.decrementMonth();
+cal2 = new Calendar("cal2");
 
-cal1.render();
+cal1.render(new Date());
+cal2.render(new Date("January 1, 2009"));
 
-infoel.innerHTML = cal1.offset() ;
 
 
 

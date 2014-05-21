@@ -82,12 +82,12 @@ table.calframe td {
 }
 
 table.calframe td.special {
-    background-color: #FF55DD;
+    background-color: #FF79FF;
     color: #000000;
     font-weight: bold;
     color: #FFFFFF;
 }
 
 table.calframe td.blank {
-    color: #FCFDFF;
+    color: #CCCDCF;
 }
