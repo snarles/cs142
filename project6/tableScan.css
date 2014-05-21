@@ -10,3 +10,10 @@ body {font-family: Tahoma, Arial, sans-serif; font-size: 13px;
 .example tr.header td {border-top: none; background: #687291;
     color: #ffffff; white-space: nowrap;}
 .example tr.odd td {background: #dfe1e7;}
+
+#results {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #000000;
+}

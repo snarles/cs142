@@ -56,5 +56,18 @@
       <tr class="even"><td>12</td><td>missing</td><td>10</td></tr>
       <tr class="odd"><td>3</td><td>4</td><td>6</td><td>5.5</td></tr>
     </table>
+    <hr/>
+    <div>
+      <form name="scanRequestForm" action="" method="GET">
+        <h2>Select a column:</h2>
+        <br/>
+        Table ID: <input type="text" name="ti" value=""><p> </p>
+        Variable Name: <input type="text" name="vn" value=""><p> </p>
+        <input type="button" value="Sum Column" onClick="sumColumnHandler(this.form)">
+      </form>
+    </div>
+    <div id="results"></div>
+    <script type = "text/javascript" src="TableScan.js"></script>
+    
   </body>
 </html>
